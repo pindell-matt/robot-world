@@ -1,0 +1,35 @@
+<h1>All Robots</h1>
+
+<!-- <% @robots.each do |robot| %>
+  <table class='table table-hover table-bordered'>
+    <tbody>
+      <tr>
+        <td>
+          <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+          <a role="button" class="btn btn-primary" href="/robots/<%= robot.id %>/edit">Edit</a>
+          <form action="/robots/<%= robot.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input role="button" class="btn btn-danger" type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %> -->
+
+<% @robots.each do |robot| %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+    </div>
+    <div class="col-md-1">
+      <a role="button" class="btn btn-primary" href="/robots/<%= robot.id %>/edit">Edit</a>
+    </div>
+    <div class="col-md-1">
+      <form action="/robots/<%= robot.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input role="button" class="btn btn-danger" type="submit" value="Delete">
+      </form>
+    </div>
+  </div>
+<% end %>

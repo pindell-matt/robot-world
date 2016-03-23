@@ -1,0 +1,50 @@
+<form class="form-horizontal" action="/robots/<%= @robot.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[name]' value="<%= @robot.name %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city" class="col-sm-2 control-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[city]' value="<%= @robot.city %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="state" class="col-sm-2 control-label">State</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[state]' value="<%= @robot.state %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="avatar" class="col-sm-2 control-label">Avatar</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[avatar]' value="<%= @robot.avatar %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="birth_date" class="col-sm-2 control-label">Birth Date</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[birth_date]' value="<%= @robot.birth_date %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="date_hired" class="col-sm-2 control-label">Date Hired</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[date_hired]' value="<%= @robot.date_hired %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="department" class="col-sm-2 control-label">Department</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name='robot[department]' value="<%= @robot.department %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Revise</button>
+    </div>
+  </div>
+</form>
