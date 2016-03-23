@@ -32,4 +32,12 @@ robots:
   birth_date: 12/12/1980
   date_hired: 12/12/2005
   department: Rap
-total: 6
+- id: 8
+  name: Charles Bronson
+  city: ''
+  state: ''
+  avatar: ccccharlesBRONson
+  birth_date: 12/12/2012
+  date_hired: ''
+  department: ''
+total: 12

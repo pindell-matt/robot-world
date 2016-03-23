@@ -1,4 +1,3 @@
-require 'faker'
 
 class Robot
   attr_reader :id, :name, :city, :state, :avatar, :birth_date,
