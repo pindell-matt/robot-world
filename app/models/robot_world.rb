@@ -78,5 +78,4 @@ class RobotWorld
     end
   end
 
-
 end
