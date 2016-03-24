@@ -36,4 +36,24 @@ class RobotWorldTest < Minitest::Test
     assert_equal "Charles Bronson", robots.first.name
     assert_equal "Steven Urkel", robots.last.name
   end
+
+  def test_it_can_return_find_a_robot
+    robot_world.create({
+      :name       => "Charles Bronson",
+      :avatar     => "a description",
+      :birth_date => "12/12/2012"
+    })
+
+    robot_world.create({
+      :name       => "Steven Urkel",
+      :avatar     => "a description",
+      :birth_date => "12/12/2012"
+    })
+
+    robot = robot_world.find(2)
+
+    assert_equal "Steven Urkel", robot.name
+    assert_equal "a description", robot.avatar
+    assert_equal 2, robot.id
+  end
 end
