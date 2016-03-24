@@ -1,7 +1,7 @@
 
 class RobotWorldApp < Sinatra::Base
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true
+  # set :root, File.expand_path("..", __dir__)
+  # set :method_override, true
 
   get '/' do
     @avg_age = robot_world.calc_avg_robot_age
@@ -47,9 +47,9 @@ class RobotWorldApp < Sinatra::Base
 
   def robot_world
     if ENV["RACK_ENV"] == "test"
-      database = YAML::Store.new('db/robot_world_test')
+      database = Sequel.sqlite('db/robot_world_test.sqlite')
     else
-      database = YAML::Store.new('db/robot_world')
+      database = Sequel.sqlite('db/robot_world_development.sqlite')
     end
     @robot_world ||= RobotWorld.new(database)
   end

@@ -15,8 +15,22 @@ module TestHelpers
   end
 
   def robot_world
-    database = YAML::Store.new('db/robot_world_test')
+    database = Sequel.sqlite('db/robot_world_test.sqlite')
     @robot_world ||= RobotWorld.new(database)
+  end
+
+  def create_robots(num)
+    num.times do |i|
+      robot_world.create({
+        :name       => "Robot #{i + 1}",
+        :city       => "City #{i + 1}",
+        :state      => "State #{i + 1}",
+        :avatar     => "Avatar #{i + 1}",
+        :birth_date => "Birth Date #{i + 1}",
+        :date_hired => "Date Hired #{i + 1}",
+        :department => "Department #{i + 1}"
+        })
+    end
   end
 
 end

@@ -9,66 +9,27 @@ class RobotWorld
   end
 
   def create(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['total'] ||= 0
-      database['total'] += 1
-      database['robots'] << {
-                              "id"         => database['total'],
-                              "name"       => robot[:name],
-                              "city"       => robot[:city],
-                              "state"      => robot[:state],
-                              "avatar"     => robot[:avatar],
-                              "birth_date" => robot[:birth_date],
-                              "date_hired" => robot[:date_hired],
-                              "department" => robot[:department]
-                            }
-
-    end
-  end
-
-  def raw_robots
-    database.transaction do
-      database['robots'] || []
-    end
+    database.from(:robots).insert(robot)
   end
 
   def all
-    raw_robots.map { |data| Robot.new(data)}
-  end
-
-  def raw_robot(id)
-    raw_robots.find { |robot| robot["id"] == id }
+    database.from(:robots).map { |data| Robot.new(data) }
   end
 
   def find(id)
-    Robot.new(raw_robot(id))
+    database.from(:robots).where(id: id).to_a.first
   end
 
-  def update(robot, id)
-    database.transaction do
-      target = database['robots'].find { |data| data["id"] == id }
-      target["name"] = robot[:name]
-      target["city"] = robot[:city]
-      target["state"] = robot[:state]
-      target["avatar"] = robot[:avatar]
-      target["birth_date"] = robot[:birth_date]
-      target["date_hired"] = robot[:date_hired]
-      target["department"] = robot[:department]
-    end
+  def update(id, robot)
+    database.from(:robots).where(id: id).update(robot)
   end
 
   def destroy(id)
-    database.transaction do
-      database['robots'].delete_if { |robot| robot["id"] == id }
-    end
+    database.from(:robots).where(id: id).delete
   end
 
   def destroy_all
-    database.transaction do
-      database['robots'] = []
-      database['total'] = 0
-    end
+    database.from(:robots).delete
   end
 
   def calc_avg_robot_age
