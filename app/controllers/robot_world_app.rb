@@ -1,7 +1,4 @@
-
 class RobotWorldApp < Sinatra::Base
-  # set :root, File.expand_path("..", __dir__)
-  # set :method_override, true
 
   get '/' do
     @avg_age = robot_world.calc_avg_robot_age
@@ -15,6 +12,15 @@ class RobotWorldApp < Sinatra::Base
     @robots = robot_world.all
     erb :index
   end
+
+  # get '/robots' do
+  #   if params[:name]
+  #     @robots = robot_world.find_by(name: params[:name])
+  #   else
+  #     @robots = robot_world.all
+  #   end
+  #   erb :index
+  # end
 
   get '/robots/new' do
     erb :new
@@ -36,7 +42,7 @@ class RobotWorldApp < Sinatra::Base
   end
 
   put '/robots/:id' do |id|
-    robot_world.update(params[:robot], id.to_i)
+    robot_world.update(id.to_i, params[:robot])
     redirect "/robots/#{id}"
   end
 

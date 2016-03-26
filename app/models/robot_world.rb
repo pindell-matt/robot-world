@@ -8,28 +8,33 @@ class RobotWorld
     @database = database
   end
 
+  def dataset
+    database.from(:robots)
+  end
+
   def create(robot)
-    database.from(:robots).insert(robot)
+    dataset.insert(robot)
   end
 
   def all
-    database.from(:robots).map { |data| Robot.new(data) }
+    dataset.map { |data| Robot.new(data) }
   end
 
   def find(id)
-    database.from(:robots).where(id: id).to_a.first
+    data = dataset.where(id: id).to_a.first
+    Robot.new(data)
   end
 
   def update(id, robot)
-    database.from(:robots).where(id: id).update(robot)
+    dataset.where(id: id).update(robot)
   end
 
   def destroy(id)
-    database.from(:robots).where(id: id).delete
+    dataset.where(id: id).delete
   end
 
   def destroy_all
-    database.from(:robots).delete
+    dataset.delete
   end
 
   def calc_avg_robot_age
