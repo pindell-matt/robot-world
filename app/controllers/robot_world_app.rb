@@ -1,10 +1,11 @@
 class RobotWorldApp < Sinatra::Base
 
   get '/' do
-    @avg_age = robot_world.calc_avg_robot_age
-    @by_department = robot_world.by_location(:department)
-    @by_city = robot_world.by_location(:city)
-    @by_state = robot_world.by_location(:state)
+    @avg_age        = robot_world.calc_avg_robot_age
+    @by_department  = robot_world.by_location(:department)
+    @by_city        = robot_world.by_location(:city)
+    @by_state       = robot_world.by_location(:state)
+    @hires_per_year = robot_world.hires_per_year
     erb :dashboard
   end
 

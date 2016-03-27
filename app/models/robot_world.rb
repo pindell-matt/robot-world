@@ -38,11 +38,10 @@ class RobotWorld
   end
 
   def calc_avg_robot_age
-    # ages = all.map do |robot|
-    #   Date.today.year - (Date.strptime(robot.birth_date, "%m/%d/%Y").year)
-    # end
-    # ages.reduce(:+) / ages.count
-    66
+    ages = all.map do |robot|
+      Date.today.year - (Date.strptime(robot.birth_date, "%m/%d/%Y").year)
+    end
+    ages.reduce(:+) / ages.count
   end
 
   def by_location(location)
@@ -52,4 +51,9 @@ class RobotWorld
     end
   end
 
+  def hires_per_year
+    all.each_with_object(Hash.new(0)) do |robot, hash|
+      hash[robot.date_hired.split('/').last.to_i] += 1
+    end
+  end
 end

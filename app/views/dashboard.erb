@@ -1,10 +1,70 @@
-<h1>Prepare Thyself for Robot World</h1>
-
-<p><a href='/robots'>Robot List</a></p>
-<p><a href='/robots/new'>Create New Robot</a></p><br>
+<h1>Prepare Thyself for <strong>Robot World</strong></h1>
 
 <h3>Dem Raw Analytics:</h3>
 <p>The average robot age is: <%= @avg_age %></p>
-<p>Organized by Department: <%= @by_department %></p>
-<p>Organized by City: <%= @by_city %></p>
-<p>Organized by State: <%= @by_state %></p>
+
+<div class="row">
+  <div class="col-md-3">
+    <table class="table">
+      <caption>Hires Per Year</caption>
+        <tr>
+          <th>Year</th>
+          <th>Hired</th>
+        </tr>
+        <% @hires_per_year.each do |pair| %>
+          <tr>
+            <td><%= pair.first %></td>
+            <td><%= pair.last %>
+          <tr>
+        <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-3">
+    <table class="table">
+      <caption>Robots per Department</caption>
+        <tr>
+          <th>Department</th>
+          <th>Amount</th>
+        </tr>
+        <% @by_department.each do |pair| %>
+          <tr>
+            <td><%= pair.first %></td>
+            <td><%= pair.last %>
+          <tr>
+        <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-3">
+    <table class="table">
+      <caption>Robots per City</caption>
+        <tr>
+          <th>City</th>
+          <th>Amount</th>
+        </tr>
+        <% @by_city.each do |pair| %>
+          <tr>
+            <td><%= pair.first %></td>
+            <td><%= pair.last %>
+          <tr>
+        <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-3">
+    <table class="table">
+      <caption>Robots per State</caption>
+        <tr>
+          <th>State</th>
+          <th>Amount</th>
+        </tr>
+        <% @by_state.each do |pair| %>
+          <tr>
+            <td><%= pair.first %></td>
+            <td><%= pair.last %>
+          <tr>
+        <% end %>
+    </table>
+  </div>
+</div>

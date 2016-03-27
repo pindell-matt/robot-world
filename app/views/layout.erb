@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="/application.css">
     <title>Robot World</title>
   </head>
   <body>
     <div class='col-md-12 navbar navbar-default navbar-static-top'>
-      <p class='navbar-brand'>Robot World</p>
-      <a href='/' class='navbar-brand'>
-        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-      </a>
-      <a href="/robots" class='navbar-brand'>
-        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-      </a>
-      <a href="/robots/new" class='navbar-brand'>
-        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-      </a>
+      <div class='container-fluid'>
+        <div class='navbar-header'>
+          <a class='navbar-brand' style="color:white" href='/'>Robot World
+            <span class="glyphicon glyphicon-home" style="color:white" aria-hidden="true"></span>
+          </a>
+          <a href="/robots" class='navbar-brand'>
+            <span class="glyphicon glyphicon-list-alt" style="color:white" aria-hidden="true"></span>
+          </a>
+          <a href="/robots/new" class='navbar-brand'>
+            <span class="glyphicon glyphicon-plus-sign" style="color:white" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="container">
       <%= yield %>
